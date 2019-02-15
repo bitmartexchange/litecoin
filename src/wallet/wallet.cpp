@@ -2357,9 +2357,9 @@ void CWallet::AvailableCoins(std::vector<COutput> &vCoins, bool fOnlySafe, const
 
                 isminetype mine = IsMine(pcoin->tx->vout[i]);
 
-                //if (mine == ISMINE_NO) {
-                 //   continue;
-                //}
+                if (mine == ISMINE_NO) {
+                    continue;
+                }
 
                 bool fSpendableIn = ((mine & ISMINE_SPENDABLE) != ISMINE_NO) || (coinControl && coinControl->fAllowWatchOnly && (mine & ISMINE_WATCH_SOLVABLE) != ISMINE_NO);
 				// bool fSpendableIn = true; //bitmart exchange needs sign at sign node but not network node
