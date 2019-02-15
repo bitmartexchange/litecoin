@@ -1240,7 +1240,7 @@ bool CWallet::DummySignTx(CMutableTransaction &txNew, const ContainerType &coins
         const CScript& scriptPubKey = coin.txout.scriptPubKey;
         SignatureData sigdata;
 
-        if (!ProduceSignature(DummySignatureCreator(this), scriptPubKey, sigdata))
+        if (!BitmartProduceSignature(DummySignatureCreator(this), scriptPubKey, sigdata))
         {
             return false;
         } else {
